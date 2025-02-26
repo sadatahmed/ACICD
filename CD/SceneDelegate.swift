@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  ACICD
+//  CD
 //
-//  Created by apple on 26/2/25.
+//  Created by apple on 30.11.2023.
 //
 
 import UIKit
