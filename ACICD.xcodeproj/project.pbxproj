@@ -6,6 +6,12 @@
 	objectVersion = 54;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		82ABADBBF54C2B19661C76FB /* Pods_ACICD_ACICDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5EF66C3FBCE1DF72C2769E /* Pods_ACICD_ACICDUITests.framework */; };
+		9DA12DBB7766C5CB59A3AD85 /* Pods_ACICD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679443BCE3948D4C54B86E07 /* Pods_ACICD.framework */; };
+		EBAB1BDC54017A8688318B91 /* Pods_ACICDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00332B4059085EC4DF91A211 /* Pods_ACICDTests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		18F0E1002D6ECCAA00489745 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,13 +30,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00332B4059085EC4DF91A211 /* Pods_ACICDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACICDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F0E0E92D6ECCA800489745 /* ACICD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACICD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F0E0FF2D6ECCAA00489745 /* ACICDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACICDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F0E1092D6ECCAA00489745 /* ACICDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACICDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		241DCF77D8CC1232611B10A6 /* Pods-ACICD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACICD.debug.xcconfig"; path = "Target Support Files/Pods-ACICD/Pods-ACICD.debug.xcconfig"; sourceTree = "<group>"; };
+		304B228A9F1CAD6449EA33F7 /* Pods-ACICD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACICD.release.xcconfig"; path = "Target Support Files/Pods-ACICD/Pods-ACICD.release.xcconfig"; sourceTree = "<group>"; };
+		5F631D17D8E46A0EEE4FACE8 /* Pods-ACICDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACICDTests.release.xcconfig"; path = "Target Support Files/Pods-ACICDTests/Pods-ACICDTests.release.xcconfig"; sourceTree = "<group>"; };
+		679443BCE3948D4C54B86E07 /* Pods_ACICD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACICD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C818D9579E79E1EEA89566 /* Pods-ACICDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACICDTests.debug.xcconfig"; path = "Target Support Files/Pods-ACICDTests/Pods-ACICDTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B4568275AEA9F18D5E80A734 /* Pods-ACICD-ACICDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACICD-ACICDUITests.debug.xcconfig"; path = "Target Support Files/Pods-ACICD-ACICDUITests/Pods-ACICD-ACICDUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC836B870BE231D456D6DB32 /* Pods-ACICD-ACICDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACICD-ACICDUITests.release.xcconfig"; path = "Target Support Files/Pods-ACICD-ACICDUITests/Pods-ACICD-ACICDUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EE5EF66C3FBCE1DF72C2769E /* Pods_ACICD_ACICDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACICD_ACICDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		18F0E1112D6ECCAA00489745 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		18F0E1112D6ECCAA00489745 /* Exceptions for "ACICD" folder in "ACICD" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,9 +55,40 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		18F0E0EB2D6ECCA800489745 /* ACICD */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (18F0E1112D6ECCAA00489745 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ACICD; sourceTree = "<group>"; };
-		18F0E1022D6ECCAA00489745 /* ACICDTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ACICDTests; sourceTree = "<group>"; };
-		18F0E10C2D6ECCAA00489745 /* ACICDUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ACICDUITests; sourceTree = "<group>"; };
+		18F0E0EB2D6ECCA800489745 /* ACICD */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				18F0E1112D6ECCAA00489745 /* Exceptions for "ACICD" folder in "ACICD" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = ACICD;
+			sourceTree = "<group>";
+		};
+		18F0E1022D6ECCAA00489745 /* ACICDTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = ACICDTests;
+			sourceTree = "<group>";
+		};
+		18F0E10C2D6ECCAA00489745 /* ACICDUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = ACICDUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA12DBB7766C5CB59A3AD85 /* Pods_ACICD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBAB1BDC54017A8688318B91 /* Pods_ACICDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,12 +112,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82ABADBBF54C2B19661C76FB /* Pods_ACICD_ACICDUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041A4215FFBF0792E997E481 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				241DCF77D8CC1232611B10A6 /* Pods-ACICD.debug.xcconfig */,
+				304B228A9F1CAD6449EA33F7 /* Pods-ACICD.release.xcconfig */,
+				B4568275AEA9F18D5E80A734 /* Pods-ACICD-ACICDUITests.debug.xcconfig */,
+				CC836B870BE231D456D6DB32 /* Pods-ACICD-ACICDUITests.release.xcconfig */,
+				79C818D9579E79E1EEA89566 /* Pods-ACICDTests.debug.xcconfig */,
+				5F631D17D8E46A0EEE4FACE8 /* Pods-ACICDTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		18F0E0E02D6ECCA800489745 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +140,8 @@
 				18F0E1022D6ECCAA00489745 /* ACICDTests */,
 				18F0E10C2D6ECCAA00489745 /* ACICDUITests */,
 				18F0E0EA2D6ECCA800489745 /* Products */,
+				041A4215FFBF0792E997E481 /* Pods */,
+				32764169AA295E5BE333A29E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +155,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		32764169AA295E5BE333A29E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				679443BCE3948D4C54B86E07 /* Pods_ACICD.framework */,
+				EE5EF66C3FBCE1DF72C2769E /* Pods_ACICD_ACICDUITests.framework */,
+				00332B4059085EC4DF91A211 /* Pods_ACICDTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -97,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18F0E1122D6ECCAA00489745 /* Build configuration list for PBXNativeTarget "ACICD" */;
 			buildPhases = (
+				3EA90A88A3E18A51BAACB038 /* [CP] Check Pods Manifest.lock */,
 				18F0E0E52D6ECCA800489745 /* Sources */,
 				18F0E0E62D6ECCA800489745 /* Frameworks */,
 				18F0E0E72D6ECCA800489745 /* Resources */,
+				0FD3FF9A55526171E998DA62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,8 +186,6 @@
 				18F0E0EB2D6ECCA800489745 /* ACICD */,
 			);
 			name = ACICD;
-			packageProductDependencies = (
-			);
 			productName = ACICD;
 			productReference = 18F0E0E92D6ECCA800489745 /* ACICD.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18F0E1172D6ECCAA00489745 /* Build configuration list for PBXNativeTarget "ACICDTests" */;
 			buildPhases = (
+				3AD1E4B3CB972DF5B9ABF7AA /* [CP] Check Pods Manifest.lock */,
 				18F0E0FB2D6ECCAA00489745 /* Sources */,
 				18F0E0FC2D6ECCAA00489745 /* Frameworks */,
 				18F0E0FD2D6ECCAA00489745 /* Resources */,
@@ -132,8 +208,6 @@
 				18F0E1022D6ECCAA00489745 /* ACICDTests */,
 			);
 			name = ACICDTests;
-			packageProductDependencies = (
-			);
 			productName = ACICDTests;
 			productReference = 18F0E0FF2D6ECCAA00489745 /* ACICDTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -142,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18F0E11A2D6ECCAA00489745 /* Build configuration list for PBXNativeTarget "ACICDUITests" */;
 			buildPhases = (
+				24A20D550753F04E38EE2390 /* [CP] Check Pods Manifest.lock */,
 				18F0E1052D6ECCAA00489745 /* Sources */,
 				18F0E1062D6ECCAA00489745 /* Frameworks */,
 				18F0E1072D6ECCAA00489745 /* Resources */,
+				DB352A2BCA8C6C3EE7210F4E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,8 +231,6 @@
 				18F0E10C2D6ECCAA00489745 /* ACICDUITests */,
 			);
 			name = ACICDUITests;
-			packageProductDependencies = (
-			);
 			productName = ACICDUITests;
 			productReference = 18F0E1092D6ECCAA00489745 /* ACICDUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -229,6 +303,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FD3FF9A55526171E998DA62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACICD/Pods-ACICD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACICD/Pods-ACICD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACICD/Pods-ACICD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24A20D550753F04E38EE2390 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACICD-ACICDUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AD1E4B3CB972DF5B9ABF7AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACICDTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EA90A88A3E18A51BAACB038 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACICD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB352A2BCA8C6C3EE7210F4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACICD-ACICDUITests/Pods-ACICD-ACICDUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACICD-ACICDUITests/Pods-ACICD-ACICDUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACICD-ACICDUITests/Pods-ACICD-ACICDUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18F0E0E52D6ECCA800489745 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,6 +446,7 @@
 /* Begin XCBuildConfiguration section */
 		18F0E1132D6ECCAA00489745 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 241DCF77D8CC1232611B10A6 /* Pods-ACICD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +475,7 @@
 		};
 		18F0E1142D6ECCAA00489745 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 304B228A9F1CAD6449EA33F7 /* Pods-ACICD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,6 +623,7 @@
 		};
 		18F0E1182D6ECCAA00489745 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C818D9579E79E1EEA89566 /* Pods-ACICDTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -462,6 +642,7 @@
 		};
 		18F0E1192D6ECCAA00489745 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F631D17D8E46A0EEE4FACE8 /* Pods-ACICDTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -480,6 +661,7 @@
 		};
 		18F0E11B2D6ECCAA00489745 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4568275AEA9F18D5E80A734 /* Pods-ACICD-ACICDUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -497,6 +679,7 @@
 		};
 		18F0E11C2D6ECCAA00489745 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC836B870BE231D456D6DB32 /* Pods-ACICD-ACICDUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
