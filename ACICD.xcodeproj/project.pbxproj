@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		18F0E1112D6ECCAA00489745 /* Exceptions for "ACICD" folder in "ACICD" target */ = {
+		18F0E1112D6ECCAA00489745 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,24 +40,9 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		18F0E0EB2D6ECCA800489745 /* ACICD */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				18F0E1112D6ECCAA00489745 /* Exceptions for "ACICD" folder in "ACICD" target */,
-			);
-			path = ACICD;
-			sourceTree = "<group>";
-		};
-		18F0E1022D6ECCAA00489745 /* ACICDTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ACICDTests;
-			sourceTree = "<group>";
-		};
-		18F0E10C2D6ECCAA00489745 /* ACICDUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ACICDUITests;
-			sourceTree = "<group>";
-		};
+		18F0E0EB2D6ECCA800489745 /* ACICD */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (18F0E1112D6ECCAA00489745 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ACICD; sourceTree = "<group>"; };
+		18F0E1022D6ECCAA00489745 /* ACICDTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ACICDTests; sourceTree = "<group>"; };
+		18F0E10C2D6ECCAA00489745 /* ACICDUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ACICDUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +185,7 @@
 				};
 			};
 			buildConfigurationList = 18F0E0E42D6ECCA800489745 /* Build configuration list for PBXProject "ACICD" */;
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -208,7 +194,6 @@
 			);
 			mainGroup = 18F0E0E02D6ECCA800489745;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 18F0E0EA2D6ECCA800489745 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
