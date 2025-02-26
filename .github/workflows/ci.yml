@@ -1,4 +1,4 @@
-name: CI
+name: iOS CI Pipeline
 
 on:
   push:
@@ -21,66 +21,84 @@ jobs:
       with:
         xcode-version: '16.2'
 
-    - name: Initialize Simulators
+    - name: Prepare Environment
       run: |
         sudo xcodebuild -runFirstLaunch
         xcrun simctl list devices
 
-    - name: Resolve Dependencies
+    - name: Install Dependencies
       run: |
         if [ -f Podfile ]; then
-          pod install
-        elif [ -f Package.swift ]; then
-          swift package resolve
+          pod install --repo-update
         fi
 
-    - name: Detect Xcode Project Structure
+    - name: Verify Workspace
+      run: |
+        if [ -d *.xcworkspace ]; then
+          echo "Workspace exists"
+          ls -la *.xcworkspace
+        else
+          echo "No workspace found, using Xcode project"
+        fi
+
+    - name: Detect Build Configuration
       id: detect
       run: |
-        if ls *.xcworkspace >/dev/null 2>&1; then
-          echo "WORKSPACE_FILE=$(ls *.xcworkspace | head -1)" >> $GITHUB_OUTPUT
+        # Find workspace or project
+        if ls -d *.xcworkspace >/dev/null 2>&1; then
+          WORKSPACE=$(ls -d *.xcworkspace | head -1)
+          echo "WORKSPACE=$WORKSPACE" >> $GITHUB_OUTPUT
           echo "BUILD_TYPE=-workspace" >> $GITHUB_OUTPUT
-        else
-          echo "WORKSPACE_FILE=$(ls *.xcodeproj | head -1)" >> $GITHUB_OUTPUT
+        elif ls -d *.xcodeproj >/dev/null 2>&1; then
+          PROJECT=$(ls -d *.xcodeproj | head -1)
+          echo "PROJECT=$PROJECT" >> $GITHUB_OUTPUT
           echo "BUILD_TYPE=-project" >> $GITHUB_OUTPUT
+        else
+          echo "No Xcode workspace or project found"
+          exit 1
         fi
 
-        SCHEME=$(xcodebuild -list -json | jq -r '.project.schemes[0]')
+        # Detect scheme
+        if [ -n "$WORKSPACE" ]; then
+          SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list -json | jq -r '.workspace.schemes[0]')
+        else
+          SCHEME=$(xcodebuild -project "$PROJECT" -list -json | jq -r '.project.schemes[0]')
+        fi
         echo "SCHEME=$SCHEME" >> $GITHUB_OUTPUT
 
-    - name: Select Simulator
+    - name: Select Simulator Device
       id: simulator
       run: |
-        DEVICE=$(xcrun simctl list devices available | \
-          grep -E 'iPhone.*(15|14|SE)' | \
-          grep -v 'unavailable' | \
-          head -1 | \
-          awk -F '[()]' '{print $1}' | \
-          sed 's/^[ \t]*//;s/[ \t]*$//')
-
-        echo "Selected device: $DEVICE"
-        echo "DEVICE_NAME=$DEVICE" >> $GITHUB_OUTPUT
+        DEVICE_INFO=$(xcrun simctl list devices available | grep -E 'iPhone.*(15|14|SE)' | grep -v unavailable | head -1)
+        DEVICE_NAME=$(echo "$DEVICE_INFO" | awk -F '[(]' '{print $1}' | xargs)
+        echo "Selected simulator: $DEVICE_NAME"
+        echo "DEVICE_NAME=$DEVICE_NAME" >> $GITHUB_OUTPUT
 
     - name: Build and Test
       run: |
-        set -x
+        set -eo pipefail
+
+        if [ "${{ steps.detect.outputs.BUILD_TYPE }}" = "-workspace" ]; then
+          BUILD_FILE="${{ steps.detect.outputs.WORKSPACE }}"
+        else
+          BUILD_FILE="${{ steps.detect.outputs.PROJECT }}"
+        fi
+
         xcodebuild clean test \
-          ${{ steps.detect.outputs.BUILD_TYPE }} ${{ steps.detect.outputs.WORKSPACE_FILE }} \
+          ${{ steps.detect.outputs.BUILD_TYPE }} "$BUILD_FILE" \
           -scheme "${{ steps.detect.outputs.SCHEME }}" \
           -destination "platform=iOS Simulator,name=${{ steps.simulator.outputs.DEVICE_NAME }}" \
           -destination-timeout 300 \
-          -quiet \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
           ONLY_ACTIVE_ARCH=YES \
-          -disableAutomaticPackageResolution \
-          -skipPackageUpdates
+          -quiet
 
-    - name: Upload Test Results
+    - name: Archive Test Results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
-        name: xcode-test-results
+        name: test-results
         path: |
           **/test_outputs/*.xcresult
           **/TestResults/*.xml
