@@ -85,7 +85,7 @@ jobs:
         fi
 
         # Ensure the simulator is booted
-        xcrun simctl boot "CI-iPhone-15"
+        xcrun simctl boot "iPhone 15 Pro"
 
         # Run tests on the specified simulator with a known iOS version
         xcodebuild clean test \
