@@ -19,7 +19,7 @@ jobs:
     - name: Setup Xcode 16.2
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '16.2'
+        xcode-version: '15.2'
 
     - name: Prepare Environment
       run: |
