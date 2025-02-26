@@ -84,10 +84,14 @@ jobs:
           BUILD_FILE="${{ steps.detect.outputs.PROJECT }}"
         fi
 
+        # Ensure the simulator is booted
+        xcrun simctl boot "CI-iPhone-15"
+
+        # Run tests on the specified simulator with a known iOS version
         xcodebuild clean test \
           ${{ steps.detect.outputs.BUILD_TYPE }} "$BUILD_FILE" \
           -scheme "${{ steps.detect.outputs.SCHEME }}" \
-          -destination "platform=iOS Simulator,name=${{ steps.simulator.outputs.DEVICE_NAME }}" \
+          -destination "platform=iOS Simulator,name=${{ steps.simulator.outputs.DEVICE_NAME }},OS=17.2" \
           -destination-timeout 300 \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
