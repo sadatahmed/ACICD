@@ -26,11 +26,11 @@ jobs:
         sudo xcodebuild -runFirstLaunch
         xcrun simctl list devices
 
-    - name: Install Dependencies
-      run: |
-        if [ -f Podfile ]; then
-          pod install --repo-update
-        fi
+#    - name: Install Dependencies
+#      run: |
+#        if [ -f Podfile ]; then
+#          pod install --repo-update
+#        fi
 
     - name: Verify Workspace
       run: |
