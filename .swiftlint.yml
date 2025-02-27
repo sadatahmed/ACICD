@@ -1,0 +1,45 @@
+opt_in_rules:
+#- closure_end_indentation
+- closure_spacing
+- empty_count
+- explicit_init
+- fatal_error_message
+- first_where
+- operator_usage_whitespace
+- overridden_super_call
+- prohibited_super_call
+- redundant_nil_coalescing
+- multiline_parameters
+- vertical_parameter_alignment_on_call
+- joined_default_parameter
+#- unneeded_parentheses_in_closure_argument
+- missing_docs
+
+disabled_rules:
+- line_length
+- unused_optional_binding
+- unused_closure_parameter
+- unneeded_override
+- unused_setter_value
+- file_length
+- valid_ibinspectable
+- shorthand_operator
+- file_header
+- discarded_notification_center_observer
+- empty_enum_arguments
+- prohibited_super_call
+
+excluded:
+- Carthage
+- Pods
+- init.swift
+
+identifier_name:
+  min_length: 1
+  max_length:
+    warning: 100
+    error: 150
+
+function_body_length:
+  warning: 150
+  error: 200

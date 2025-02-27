@@ -1,0 +1,108 @@
+name: iOS CI Pipeline
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: macos-latest
+    timeout-minutes: 30
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Xcode 16.2
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '15.2'
+
+    - name: Prepare Environment
+      run: |
+        sudo xcodebuild -runFirstLaunch
+        xcrun simctl list devices
+
+#    - name: Install Dependencies
+#      run: |
+#        if [ -f Podfile ]; then
+#          pod install --repo-update
+#        fi
+
+    - name: Verify Workspace
+      run: |
+        if [ -d *.xcworkspace ]; then
+          echo "Workspace exists"
+          ls -la *.xcworkspace
+        else
+          echo "No workspace found, using Xcode project"
+        fi
+
+    - name: Detect Build Configuration
+      id: detect
+      run: |
+        # Find workspace or project
+        if ls -d *.xcworkspace >/dev/null 2>&1; then
+          WORKSPACE=$(ls -d *.xcworkspace | head -1)
+          echo "WORKSPACE=$WORKSPACE" >> $GITHUB_OUTPUT
+          echo "BUILD_TYPE=-workspace" >> $GITHUB_OUTPUT
+        elif ls -d *.xcodeproj >/dev/null 2>&1; then
+          PROJECT=$(ls -d *.xcodeproj | head -1)
+          echo "PROJECT=$PROJECT" >> $GITHUB_OUTPUT
+          echo "BUILD_TYPE=-project" >> $GITHUB_OUTPUT
+        else
+          echo "No Xcode workspace or project found"
+          exit 1
+        fi
+
+        # Detect scheme
+        if [ -n "$WORKSPACE" ]; then
+          SCHEME=$(xcodebuild -workspace "$WORKSPACE" -list -json | jq -r '.workspace.schemes[0]')
+        else
+          SCHEME=$(xcodebuild -project "$PROJECT" -list -json | jq -r '.project.schemes[0]')
+        fi
+        echo "SCHEME=$SCHEME" >> $GITHUB_OUTPUT
+
+    - name: Select Simulator Device
+      id: simulator
+      run: |
+        DEVICE_INFO=$(xcrun simctl list devices available | grep -E 'iPhone.*(15|14|SE)' | grep -v unavailable | head -1)
+        DEVICE_NAME=$(echo "$DEVICE_INFO" | awk -F '[(]' '{print $1}' | xargs)
+        echo "Selected simulator: $DEVICE_NAME"
+        echo "DEVICE_NAME=$DEVICE_NAME" >> $GITHUB_OUTPUT
+
+    - name: Build and Test
+      run: |
+        set -eo pipefail
+
+        if [ "${{ steps.detect.outputs.BUILD_TYPE }}" = "-workspace" ]; then
+          BUILD_FILE="${{ steps.detect.outputs.WORKSPACE }}"
+        else
+          BUILD_FILE="${{ steps.detect.outputs.PROJECT }}"
+        fi
+
+        # Ensure the simulator is booted
+        xcrun simctl boot "iPhone 15 Pro"
+
+        # Run tests on the specified simulator with a known iOS version
+        xcodebuild clean test \
+          ${{ steps.detect.outputs.BUILD_TYPE }} "$BUILD_FILE" \
+          -scheme "${{ steps.detect.outputs.SCHEME }}" \
+          -destination "platform=iOS Simulator,name=${{ steps.simulator.outputs.DEVICE_NAME }},OS=17.2" \
+          -destination-timeout 300 \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          ONLY_ACTIVE_ARCH=YES \
+          -quiet
+
+    - name: Archive Test Results
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: |
+          **/test_outputs/*.xcresult
+          **/TestResults/*.xml
