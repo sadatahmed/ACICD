@@ -56,10 +56,6 @@ class ArithmeticTests: XCTestCase {
         XCTAssertEqual(viewController.subtract(5, 5), 0, "5 - 5 should equal 0")
     }
     
-    func testSubtractionDummy() {
-        XCTAssertEqual(viewController.subtract(5, 3), 8, "5 - -3 should equal 8")
-    }
-    
     func testMultiplication() {
         // Test positive numbers
         XCTAssertEqual(viewController.multiply(5, 3), 15, "5 * 3 should equal 15")
